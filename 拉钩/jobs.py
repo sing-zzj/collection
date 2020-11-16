@@ -6,8 +6,10 @@
 
 '''
 目标：使用selenium, 爬取拉勾网
-注意：程序使用了selenium, 来调动Chrome来启动, 需要提前安装
 第三方库：Beautiful, selenium
+注意：
+    1.程序使用了selenium, 来调动Chrome来启动, 需要提前安装
+    2.需要提前注册
 '''
 
 from selenium import webdriver
