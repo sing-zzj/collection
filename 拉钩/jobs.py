@@ -34,11 +34,11 @@ if __name__ == '__main__':
 
     driver.find_element_by_xpath("//form/div[1]/div").click()
     username = driver.find_element_by_xpath("//form/div[1]/div/input")
-    username.send_keys('15056894042')
+    username.send_keys('输入自己创建的账户')
 
     driver.find_element_by_xpath("//form/div[2]/div").click()
     passward = driver.find_element_by_xpath("//form/div[2]/div/input")
-    passward.send_keys('zzj618618')
+    passward.send_keys('输入自己密码')
 
     driver.find_element_by_xpath('//div[@class="login-btn login-password sense_login_password btn-green"]').click()
 
