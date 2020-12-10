@@ -3,5 +3,6 @@
 # @Author : 啊。懋勋
 # @version: Python 3.7
 # @File : test011.py
-i = 5
+i = 52
 print(i)
+
