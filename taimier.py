@@ -8,6 +8,8 @@ from urllib.parse import urlencode
 
 import requests
 from lxml import etree
+import time
+import os
 
 base = "https://en.glosbe.com/en/ta/{}/fragment/tmem?page={}&mode=MUST&stem=true&includedAuthors=&excludedAuthors="
 headers = {
@@ -31,9 +33,9 @@ def get_sign(url):
 
     html = get_html(url)
     try:
-        html.xpath('//p/text()')[0].strip()
-    # if sign == "No examples found, consider adding one please.":
-        return True
+        sign = html.xpath('//p/text()')[0].strip()
+        if sign == "No examples found, consider adding one please.":
+            return True
     # else:
     except:
         return False
@@ -51,18 +53,24 @@ def parse(html):
     tas = html.xpath("//div[@lang='ta']")
     tas = list(map(lambda i: ''.join(i.xpath(".//text()")), tas))
 
-    print(ens)
-    print(tas)
+    print(ens[0])
     download(ens, tas)
 
 def download(ens, tas):
-    pass
+
+    with open('TaiMiEr/en.txt', 'a', encoding='utf-8') as pf:
+        pf.write('\n'.join(ens))
+        pf.write('\n')
+    with open('TaiMiEr/ta.txt', 'a', encoding='utf-8') as ne:
+        ne.write('\n'.join(tas))
+        ne.write('\n')
 
 def main(word):
 
     for i in range(1, 10):
         url = base.format(word, i)
         if get_sign(url):
+            print(word, "--Success Download")
             break
 
         html = get_html(url)
@@ -72,4 +80,6 @@ def main(word):
 if __name__ == "__main__":
     get_words = words()
 
-    main("this")
+    for value in get_words[60221:]:
+        main(value)
+        # time.sleep(5)
