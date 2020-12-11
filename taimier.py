@@ -80,6 +80,6 @@ def main(word):
 if __name__ == "__main__":
     get_words = words()
 
-    for value in get_words[60221:]:
+    for value in get_words[60281:60366]:
         main(value)
         # time.sleep(5)
