@@ -26,12 +26,12 @@ time.sleep(2)
 
 for i in range(0, 200000, 1500):
     driver.execute_script('window.scrollBy(0, {})'.format(i))
-    try:
-        driver.find_element_by_xpath('//a[@class="QuestionMainAction ViewAll-QuestionMainAction"]').click()
-    except:
-        pass
+    # try:
+    #     driver.find_element_by_xpath('//a[@class="QuestionMainAction ViewAll-QuestionMainAction"]').click()
+    # except:
+    #     pass
         # driver.execute_script('window.scrollBy(0, {})'.format(-(i-1000)))
-    time.sleep(3)
+    time.sleep(2)
 
 html = etree.HTML(driver.page_source)
 contents = html.xpath('//div[@class="List-item"]')
