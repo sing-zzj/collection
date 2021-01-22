@@ -16,6 +16,7 @@ import requests
 
 word = input('Please enter word of insert: ')
 
+
 lts = str(int(time.time()*1000))
 salt = lts + str(random.randint(0, 9))
 
@@ -25,6 +26,10 @@ hl.update(str_sign.encode())
 sign = hl.hexdigest()
 
 url = 'http://fanyi.youdao.com/translate_o?smartresult=dict&smartresult=rule'
+
+headers = {
+    # 填写自己的headers,包含全部信息，要不然请求不下来
+}
 
 datafrom = {
             'i': word,
